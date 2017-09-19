@@ -16,6 +16,10 @@ public class Validator {
     private double maxResultValue;
     private double minResultValue;
 
+    private static final String SEGUNDO_ARGUMENTO_EXCEDE_EL_LIMITE = "Segundo argumento excede el limite.";
+    private static final String PRIMER_ARGUMENTO_EXCEDE_EL_LIMITE = "Primer argumento excede el limite.";
+    private static final String EL_RESULTADO_EXCEDE_EL_LIMITE = "El resultado excede el limite.";
+    
     public Validator() {
         this.maxResultValue = Double.MAX_VALUE;
         this.minResultValue = -Double.MAX_VALUE;
@@ -44,8 +48,8 @@ public class Validator {
 
     public void validateArgs(double arg1, double arg2) throws OverflowException  {    
         
-        breakIfOverflow(arg1, "Primer argumento excede el limite.");
-        breakIfOverflow(arg2, "Segundo argumento excede el limite.");
+        breakIfOverflow(arg1, PRIMER_ARGUMENTO_EXCEDE_EL_LIMITE);
+        breakIfOverflow(arg2, SEGUNDO_ARGUMENTO_EXCEDE_EL_LIMITE);
     }
     
     private void breakIfOverflow(double arg, String msg) throws OverflowException{    
@@ -64,6 +68,6 @@ public class Validator {
     }
 
     public void validateResult(double result) throws OverflowException {    
-        breakIfOverflow(result, "El resultado excede el limite.");
-    }
+        breakIfOverflow(result, EL_RESULTADO_EXCEDE_EL_LIMITE);
+    }    
 }

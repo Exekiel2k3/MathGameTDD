@@ -12,11 +12,11 @@ import ar.com.sebastian.mathgametdd.entidad.MathOperator;
  * @author sebas
  */
 public class AddOperator extends MathOperator{
-    private static final String OPERATION = "add";
+    private static final String OPERATION = Operation.ADD.getOperationName();
     
     public AddOperator() {
         super(1);
-        super.token = "+";
+        super.token = Operation.ADD.getOperationToken();
     }
 
     @Override

@@ -16,6 +16,9 @@ public class MathParser{
     private Resolver resolver;
     private MathLexer lexer;
 
+    private static final String WHITE_SPACE = " ";
+    private static final String STRING_EMPTY = "";
+    
     public MathParser(MathLexer lexer, Resolver resolver) {
         this.lexer = lexer;
         this.resolver = resolver;
@@ -40,7 +43,7 @@ public class MathParser{
     public double processExpression(String expression) throws Exception {
         
         ArrayList<String> subExpressions = lexer.getExpressions(expression);
-        String flatExpression = "";
+        String flatExpression = STRING_EMPTY;
         
         for (String subExp : subExpressions) {
             
@@ -50,7 +53,7 @@ public class MathParser{
             if(!MathRegex.isSubExpression(subExp))
                 flatExpression += resolver.resolveSimpleExpression(subExp);
             else
-                flatExpression += " " + subExp + " ";
+                flatExpression += WHITE_SPACE + subExp + WHITE_SPACE;
         }
         
         if(!MathRegex.isSubExpression(flatExpression))

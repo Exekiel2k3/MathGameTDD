@@ -11,42 +11,46 @@ package ar.com.sebastian.mathgametdd.modelo;
  */
 public class MathRegex {
     
+    private static final String REGEX_DECIMAL_NEGATIVE_EXPRESSION = "(-?\\.?(\\d+((\\.|,| )\\d+)?))";
+    private static final String REGEX_DECIMAL_EXPRESSION = "(-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*](\\s+)-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))*)+)";
+    private static final String REGEX_EXPRESSION = "(((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?)))+)+)";
+    private static final String REGEX_END_WITH_OPERATOR = "(((-?\\.?(\\d+((\\.|,| )\\d+)?))*)(\\s+)[\\+|\\-|\\/|\\*])";
+    private static final String REGEX_START_WITH_OPERATOR = "((\\s*)[\\+|\\-|\\/|\\*](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?))*))";
+    private static final String REGEX_NUMBER = "(\\d+)";
+    private static final String REGEX_OPERATOR = "([\\+|\\-|\\/|\\*])";    
+    
     public static boolean isExpressionValid(String expression) {
-        String regex = "(-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*](\\s+)-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))*)+)";
-        String regexNegative = "(-?\\.?(\\d+((\\.|,| )\\d+)?))";
+        String regex = REGEX_DECIMAL_EXPRESSION;
+        String regexNegative = REGEX_DECIMAL_NEGATIVE_EXPRESSION;
         boolean result = expression.matches(regex) || expression.matches(regexNegative);
         return result;
     }
     
     public static boolean isExpression(String expression) {
-        String regex = "(((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?)))+)+)";
+        String regex = REGEX_EXPRESSION;
         boolean result = expression.matches(regex);
         return result;
     }
     
     public static boolean isNumberAndOperator(String expressions) {
         
-        String startsWithOperator = "((\\s*)[\\+|\\-|\\/|\\*](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?))*))";
-        String endsWithOperator = "(((-?\\.?(\\d+((\\.|,| )\\d+)?))*)(\\s+)[\\+|\\-|\\/|\\*])";
+        String startsWithOperator = REGEX_START_WITH_OPERATOR;
+        String endsWithOperator = REGEX_END_WITH_OPERATOR;
         return expressions.matches(startsWithOperator) || 
                 expressions.matches(endsWithOperator);
     }
     
     public static boolean isSubExpression(String subExp) {
-        String operatorRegex = "([\\+|\\-|\\/|\\*])";
-        String numberRegex = "(\\d+)";
-        boolean result1 = subExp.matches(numberRegex);
-        boolean result2 = subExp.matches(operatorRegex);
-        return result1 || result2;
+        return isNumber(subExp) || isOperator(subExp);
     }
 
     public static boolean isNumber(String number) {
-        String numberRegex = "(\\d+)";
+        String numberRegex = REGEX_NUMBER;
         return number.matches(numberRegex);
     }
-
+    
     public static boolean isOperator(String operator) {
-        String operatorRegex = "([\\+|\\-|\\/|\\*])";
+        String operatorRegex = REGEX_OPERATOR;
         return operator.matches(operatorRegex);
     }
 }

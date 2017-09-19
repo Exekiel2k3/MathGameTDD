@@ -13,6 +13,8 @@ import java.util.ArrayList;
  */
 public class ExpressionFixer {
     
+    private static final String WHITE_SPACE_AND_TAB = "(\\t|\\s)";
+
     public void fixExpressions(ArrayList<String> expressions) {
         
         boolean listHasChanges = true;
@@ -32,7 +34,7 @@ public class ExpressionFixer {
     }
 
     private void splitByOperator(ArrayList<String> expressions, int position, String exp) {
-        String[] nextExps = exp.split("(\\t|\\s)");
+        String[] nextExps = exp.split(WHITE_SPACE_AND_TAB);
         int j = position;
         expressions.remove(j);
         for (String subExp : nextExps) {

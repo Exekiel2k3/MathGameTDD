@@ -13,11 +13,11 @@ import ar.com.sebastian.mathgametdd.entidad.MathOperator;
  */
 public class MultiplyOperator extends MathOperator{
 
-    private static final String OPERATION = "multiply";
+    private static final String OPERATION = Operation.MULTIPLY.getOperationName();
     
     public MultiplyOperator() {
         super(2);
-        super.token = "*";
+        super.token = Operation.MULTIPLY.getOperationToken();
     }
 
     @Override

@@ -13,11 +13,11 @@ import ar.com.sebastian.mathgametdd.entidad.MathOperator;
  */
 public class DivideOperator extends MathOperator{
 
-    private static final String OPERATION = "division";
+    private static final String OPERATION = Operation.DIVISION.getOperationName();
     
     public DivideOperator() {
         super(2);
-        super.token = "/";
+        super.token = Operation.DIVISION.getOperationToken();
     }
 
     @Override

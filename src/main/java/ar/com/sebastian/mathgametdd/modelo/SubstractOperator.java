@@ -12,11 +12,11 @@ import ar.com.sebastian.mathgametdd.entidad.MathOperator;
  * @author sebas
  */
 public class SubstractOperator extends MathOperator{
-    private static final String OPERATION = "substract";
+    private static final String OPERATION = Operation.SUBSTRACT.getOperationName();
     
     public SubstractOperator() {
         super(1);
-        super.token = "-";
+        super.token = Operation.SUBSTRACT.getOperationToken();
     }
 
     @Override
