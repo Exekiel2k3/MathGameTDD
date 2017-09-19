@@ -1,0 +1,31 @@
+# Aceptación - "2 + 2", devuelve 4
+* Sumar 2 al número 2, devuelve 4 -> Cumplido
+* Restar 3 al número 5, devuelve 2 -> Cumplido
+* La cadena "2 + 2" tiene dos números y un operador que son ’2’, ’2’ y ’+’ -> Cumplido
+* Se permiten varios espacios entre simbolos -> Cumplido
+# Aceptación - "5 + 4 * 2 / 2", devuelve 9
+# Aceptación - "3 / 2", produce ERROR
+# Aceptación - "* * 4 - 2": produce ERROR -> Cumplido
+# Aceptación - "* 4 5 - 2": produce ERROR -> Cumplido
+# Aceptación - "*45-2-": produce ERROR -> Cumplido
+
+Pueden ser negativo el resultado en nuestra calculadora?
+# Aceptación - "2 + -2"devuelve 0
+
+# Aceptacion - Limite Superior = 100 -> Cumplido
+# Aceptacion - Limite Superior = 500 -> Cumplido
+# Aceptacion - Limite inferior = -1000 -> Cumplido
+# Aceptacion - Limite inferior = -10 -> Cumplido
+* A: El primer argumento sobrepasa el límite superior -> Cumplido 
+* B: El primer argumento sobrepasa el límite inferior -> Cumplido
+* C: El segundo argumento sobrepasa el límite superior -> Cumplido
+* D: El segundo argumento sobrepasa el límite inferior -> Cumplido
+* E: El resultado de una operación sobrepasa el límite superior -> Cumplido
+* F: El resultado de una operación sobrepasa el límite inferior -> Cumplido
+* Todos los casos de uso anteriores se aplican a todas las operaciones aritmeticas -> Cumplido
+# Aceptación - "(2 + 2) * (3 + 1)", devuelve 16
+* "(2 + 2)", se traduce en la expresión "2 + 2"
+* "((2) + 2)", se traduce en la expresión "2 + 2"
+* "(2 + 2", produce una excepción
+
+
