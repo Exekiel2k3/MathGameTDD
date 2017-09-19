@@ -22,7 +22,6 @@ public class MathLexer {
     }
     
     public ArrayList<MathToken> getTokens(String expression) throws InvalidOperationException {
-        
         String[] items = expression.split(" ");
         return createTokenFromString(items);
     }
@@ -37,7 +36,6 @@ public class MathLexer {
                     tokens.add(new MathNumber(item));
                 }
             }
-            
         }
         return tokens;
     }
@@ -48,7 +46,6 @@ public class MathLexer {
         expressions = _getExpression(expression);
         fixer.fixExpressions(expressions);
         return expressions;
-        
     }
 
     private ArrayList<String> _getExpression(String subExpression) throws InvalidOperationException{

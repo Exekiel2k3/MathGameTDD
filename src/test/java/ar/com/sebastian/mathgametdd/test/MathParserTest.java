@@ -42,7 +42,6 @@ public class MathParserTest {
     @Test
     public void processSimpleExpression() throws Exception{
         try {
-//            assertEquals(4, parser.processExpression("2 + 2"));
             assertEquals(4, parser.processExpression("2 + 2"), 0);
         } catch (OverflowException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException | NoSuchMethodException ex) {
             Logger.getLogger(MathParserTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,7 +51,6 @@ public class MathParserTest {
     @Test
     public void processSimpleExpressionWhitNegativeNumber() throws Exception{
         try {
-//            assertEquals(0, parser.processExpression("2 + -2"));
             assertEquals(0, parser.processExpression("2 + -2"), 0);
         } catch (OverflowException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException | NoSuchMethodException ex) {
             Logger.getLogger(MathParserTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,7 +60,6 @@ public class MathParserTest {
     @Test
     public void processSimpleExpressionWhitNegativeNumberWhitDouble() throws Exception{
         try {
-//            assertEquals(0, parser.processExpression("2 + -2"));
             assertEquals(0, parser.processExpression("2.91 + -2.91"), 0);
         } catch (OverflowException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException | NoSuchMethodException ex) {
             Logger.getLogger(MathParserTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,25 +78,21 @@ public class MathParserTest {
     
     @Test
     public void processExpression2Operators() throws Exception {
-//        assertEquals(6, parser.processExpression("3 + 1 + 2"));
         assertEquals(6, parser.processExpression("3 + 1 + 2"), 0);
     }
     
     @Test
     public void processExpression2OperatorsWhitDouble() throws Exception {
-//        assertEquals(6, parser.processExpression("3 + 1 + 2"));
         assertEquals(2.088, parser.processExpression("0.1 + 0.001 + 1.987"), 0);
     }
     
     @Test
     public void processExpressionWithPrecedence() throws Exception {
-//        assertEquals(9, parser.processExpression("3 + 3 * 2"));
         assertEquals(9, parser.processExpression("3 + 3 * 2"), 0);
     }
     
     @Test
     public void processExpressionWithPrecedenceWhitDouble() throws Exception {
-//        assertEquals(9, parser.processExpression("3 + 3 * 2"));
         assertEquals(88.76180829, parser.processExpression("3.0001 + 3.8981 * 22.0009"), 0);
     }
     
@@ -112,38 +105,31 @@ public class MathParserTest {
     
     @Test
     public void processAcceptanceExpression() throws Exception{
-//        assertEquals(9, parser.processExpression("5 + 4 * 2 / 2"));
         assertEquals(9, parser.processExpression("5 + 4 * 2 / 2"), 0);
     }
     
-    
     @Test
     public void processAcceptanceExpressionWhitDouble() throws Exception{
-//        assertEquals(9, parser.processExpression("5 + 4 * 2 / 2"));
         assertEquals(9.2, parser.processExpression("5.2 + 4.0 * 2.1 / 2.1"), 0);
     }
     
     @Test
     public void processAcceptanceExpressionWithNegativeResult() throws Exception{
-//        assertEquals(-1, parser.processExpression("4 - 5 * 2 / 2"));
         assertEquals(-1, parser.processExpression("4 - 5 * 2 / 2"), 0);
     }
     
     @Test
     public void processAcceptanceExpressionWithNegativeResultWhitDouble() throws Exception{
-//        assertEquals(-1, parser.processExpression("4 - 5 * 2 / 2"));
         assertEquals(-0.9590909090909095, parser.processExpression("4.1 - 5.3 * 2.1 / 2.2"), 0);
     }
     
     @Test
     public void processAcceptanceExpressionWithAllOperators() throws Exception{
-//        assertEquals(8, parser.processExpression("5 + 4 - 1 * 2 / 2"));
         assertEquals(8, parser.processExpression("5 + 4 - 1 * 2 / 2"), 0);
     }
     
     @Test
     public void processAcceptanceExpressionWithAllOperatorsWhitDouble() throws Exception{
-//        assertEquals(8, parser.processExpression("5 + 4 - 1 * 2 / 2"));
         assertEquals(9.9899, parser.processExpression("5.9999 + 4.99 - 1.00000 * 2.99 / 2.99"), 0);
     }
     
@@ -276,27 +262,23 @@ public class MathParserTest {
     @Test(expected = InvalidOperationException.class)
     public void throwExceptionOnOpenParenthesis() throws InvalidOperationException{
         ArrayList<String> expressions = lexer.getExpressions("(2 + 3 * 1");
-        
     }
     
     @Test(expected = InvalidOperationException.class)
     public void throwExceptionOnOpenParenthesisWhitDouble() throws InvalidOperationException{
         ArrayList<String> expressions = lexer.getExpressions("(2.2 + 3 * 1.1");
-        
     }
     
     @Test(expected = InvalidOperationException.class)
     public void throwExceptionOnCloseParenthesis() throws InvalidOperationException{
         lexer = new MathLexer(new ExpressionFixer());
         ArrayList<String> expressions = lexer.getExpressions("2 + 3 * 1)");
-        
     }
     
     @Test(expected = InvalidOperationException.class)
     public void throwExceptionOnCloseParenthesisWhitDouble() throws InvalidOperationException{
         lexer = new MathLexer(new ExpressionFixer());
         ArrayList<String> expressions = lexer.getExpressions("0.2 + 0.13 * 1)");
-        
     }
     
     @Test
@@ -363,7 +345,6 @@ public class MathParserTest {
     
     @Test
     public void processAcceptanceExpressionWithParenthesis() throws Exception{
-//        assertEquals(16, parser.processExpression("(2 + 2) * (3 + 1)"));
         assertEquals(16, parser.processExpression("(2 + 2) * (3 + 1)"), 0);
     }
     
@@ -396,7 +377,6 @@ public class MathParserTest {
     
     @Test
     public void processComplexNestedExpressions() throws Exception {
-//        assertEquals(20, parser.processExpression("((2 + 2) + 1)  * (3 + 1)"));
         assertEquals(20, parser.processExpression("((2 + 2) + 1)  * (3 + 1)"), 0);
     }
     

@@ -37,7 +37,6 @@ public class MathParser{
         this.resolver = resolver;
     }
 
-//    public int processExpression(String expression) throws Exception {
     public double processExpression(String expression) throws Exception {
         
         ArrayList<String> subExpressions = lexer.getExpressions(expression);
@@ -46,7 +45,6 @@ public class MathParser{
         for (String subExp : subExpressions) {
             
             if(MathRegex.isExpression(flatExpression.trim()))
-//                flatExpression = Integer.toString(resolver.resolveSimpleExpression(flatExpression.trim()));
                 flatExpression = Double.toString(resolver.resolveSimpleExpression(flatExpression.trim()));
             
             if(!MathRegex.isSubExpression(subExp))
@@ -58,7 +56,6 @@ public class MathParser{
         if(!MathRegex.isSubExpression(flatExpression))
             return resolver.resolveSimpleExpression(flatExpression);
             
-//        return Integer.parseInt(flatExpression);
         return Double.valueOf(expression);
     }
 }

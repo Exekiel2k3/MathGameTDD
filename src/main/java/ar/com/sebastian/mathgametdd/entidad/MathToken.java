@@ -41,7 +41,6 @@ public abstract class MathToken {
         return precedence;
     }
     
-//    public abstract int resolve() throws Exception;
     public abstract double resolve() throws Exception;
 
     public MathToken getNextToken() {
@@ -59,5 +58,4 @@ public abstract class MathToken {
     public void setPreviousToken(MathToken previousToken) {
         this.previousToken = previousToken;
     }
-    
 }

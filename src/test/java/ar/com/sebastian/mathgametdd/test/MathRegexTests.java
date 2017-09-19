@@ -31,7 +31,5 @@ public class MathRegexTests {
         for (Character character : operators.toCharArray()) {
             assertTrue(MathRegex.isOperator(character.toString()));
         }
-        
     }
-    
 }

@@ -19,7 +19,7 @@ public abstract class MathOperator extends MathToken{
     
     public MathOperator(int precedence) {
         super(precedence);
-        calculatorProxy = new CalculatorProxy(new Validator(-100, 100), new Calculator());
+        calculatorProxy = new CalculatorProxy(new Validator(), new Calculator());
     }    
 
     public CalculatorProxy getCalculatorProxy() {
@@ -31,11 +31,9 @@ public abstract class MathOperator extends MathToken{
     }
 
     @Override
-//    public int resolve() throws Exception{
     public double resolve() throws Exception{    
         return resolve(previousToken.resolve(), nextToken.resolve());
     }
 
-//    public abstract int resolve(int firstNumber, int secondNumber) throws Exception;
     public abstract double resolve(double firstNumber, double secondNumber) throws Exception;
 }

@@ -34,5 +34,4 @@ public class ExpressionFixerTests {
         fixer.fixExpressions(expressions);
         assertEquals("*",expressions.get(0));
     }
-    
 }

@@ -27,7 +27,6 @@ public class Calculator extends SimpleCalculator{
         return super.add(bd1, bd2).doubleValue();
     }
 
-    
     @Override
     public double substract(double arg1, double arg2){
         assingBigDecimals(arg1, arg2);
@@ -46,7 +45,6 @@ public class Calculator extends SimpleCalculator{
         BigDecimal aux = super.division(bd1, bd2); 
         double aux1 = aux.doubleValue();
         return aux1;
-                
     }
     
     private void assingBigDecimals(double arg1, double arg2) {

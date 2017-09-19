@@ -21,10 +21,6 @@ public class MathNumber extends MathToken{
         super(0);
     }
     
-//    public int getIntValue(){
-//        return Integer.parseInt(token);
-//    }
-    
     public double getDoubleValue(){
         return Double.parseDouble(token);
     }
@@ -34,9 +30,7 @@ public class MathNumber extends MathToken{
     }
 
     @Override
-//    public int resolve() {
     public double resolve() {
-//        return this.getIntValue();
         return this.getDoubleValue();
     }
 }

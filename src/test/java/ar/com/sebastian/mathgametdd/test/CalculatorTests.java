@@ -7,7 +7,6 @@ package ar.com.sebastian.mathgametdd.test;
 
 import ar.com.sebastian.mathgametdd.exception.OverflowException;
 import ar.com.sebastian.mathgametdd.modelo.Calculator;
-import java.math.BigDecimal;
 import org.easymock.EasyMockRunner;
 import org.junit.Before;
 import org.junit.Test;

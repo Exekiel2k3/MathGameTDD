@@ -28,13 +28,10 @@ public class CalculatorProxy {
         this.validator = validator;
     }
 
-//    public int binaryOperation(Class<Calculator> aClass, String operation, int arg1, int arg2) throws OverflowException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, NoSuchMethodException {
     public double binaryOperation(Class<Calculator> aClass, String operation, double arg1, double arg2) throws OverflowException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, NoSuchMethodException {    
         Method[] methods = this.calculator.getClass().getMethods();
         Object[] params = new Object[]{arg1, arg2};
-//        Class[] methodParameters = new Class[]{Integer.TYPE, Integer.TYPE};
         Class[] methodParameters = new Class[]{Double.TYPE, Double.TYPE};
-//        int result = 0;
         double result = 0;
         
         this.validator.validateArgs(arg1,arg2);
@@ -43,7 +40,6 @@ public class CalculatorProxy {
             if(method.getName()==operation){
                 Method publicMetod = this.calculator.getClass().getDeclaredMethod(operation, methodParameters); 
                 publicMetod.setAccessible(true);
-//                result = (int) publicMetod.invoke(calculator,params);
                 result = (double) publicMetod.invoke(calculator,params);
             }
         }

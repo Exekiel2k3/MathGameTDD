@@ -42,20 +42,17 @@ public class Validator {
         this.minResultValue = minResultValue;
     }
 
-//    public void validateArgs(int arg1, int arg2) throws OverflowException  {
     public void validateArgs(double arg1, double arg2) throws OverflowException  {    
         
         breakIfOverflow(arg1, "Primer argumento excede el limite.");
         breakIfOverflow(arg2, "Segundo argumento excede el limite.");
     }
     
-//    private void breakIfOverflow(int arg, String msg) throws OverflowException{
     private void breakIfOverflow(double arg, String msg) throws OverflowException{    
         if(valueExceedLimits(arg))
             throw new OverflowException(msg);
     }
 
-//    public boolean valueExceedLimits(int arg){
     public boolean valueExceedLimits(double arg){    
         if(arg > this.maxResultValue)
             return true;
@@ -66,11 +63,7 @@ public class Validator {
         return false;
     }
 
-//    public void validateResult(int result) throws OverflowException {
     public void validateResult(double result) throws OverflowException {    
         breakIfOverflow(result, "El resultado excede el limite.");
     }
-    
-    
-    
 }

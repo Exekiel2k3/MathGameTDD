@@ -21,10 +21,7 @@ public class MultiplyOperator extends MathOperator{
     }
 
     @Override
-//    public int resolve(int arg1, int arg2) throws Exception {
     public double resolve(double arg1, double arg2) throws Exception {
         return calculatorProxy.binaryOperation(Calculator.class, OPERATION, arg1, arg2);
     }
-    
-    
 }
