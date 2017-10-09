@@ -14,7 +14,8 @@ public enum Operation {
     ADD("add","+"),
     SUBSTRACT("substract","-"),
     MULTIPLY("multiply","*"),
-    DIVISION("division","/");
+    DIVISION("division","/"),
+    PERCENTAGE("percentage","%");
     
     private String operationName;
     private String operationToken;

@@ -101,4 +101,16 @@ public class CalculatorTests {
         double result = calculator.division(3.11,-5.22);
         assertTrue(result==-0.5957854406130269);
     }
+    
+    @Test
+    public void percentage() throws OverflowException, ArithmeticException{
+        double result = calculator.percentage(30,30);
+        assertTrue(result==9);
+    }
+    
+    @Test
+    public void percentageWhitDouble() throws OverflowException, ArithmeticException{
+        double result = calculator.percentage(30.5,30);
+        assertTrue(result==9.15);
+    }
 }

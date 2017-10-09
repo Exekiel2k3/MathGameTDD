@@ -18,6 +18,7 @@ public class OperatorFactory {
     private static final String MULTIPLY_OPERATOR = "*";
     private static final String SUBSTRACT_OPERATOR = "-";
     private static final String ADD_OPERATOR = "+";
+    private static final String PERCENTAGE_OPERATOR = "%";
     
     public static MathOperator create(String token) throws InvalidOperationException {    
         String aux = Operation.ADD.getOperationToken();
@@ -27,6 +28,7 @@ public class OperatorFactory {
             case SUBSTRACT_OPERATOR: return new SubstractOperator();
             case MULTIPLY_OPERATOR: return new MultiplyOperator();
             case DIVIDE_OPERATOR: return new DivideOperator();
+            case PERCENTAGE_OPERATOR: return new PercentageOperator();
             default: throw new InvalidOperationException("The given token is not a valid operator");
         }
     }

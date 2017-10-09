@@ -12,12 +12,12 @@ package ar.com.sebastian.mathgametdd.modelo;
 public class MathRegex {
     
     private static final String REGEX_DECIMAL_NEGATIVE_EXPRESSION = "(-?\\.?(\\d+((\\.|,| )\\d+)?))";
-    private static final String REGEX_DECIMAL_EXPRESSION = "(-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*](\\s+)-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))*)+)";
-    private static final String REGEX_EXPRESSION = "(((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?)))+)+)";
-    private static final String REGEX_END_WITH_OPERATOR = "(((-?\\.?(\\d+((\\.|,| )\\d+)?))*)(\\s+)[\\+|\\-|\\/|\\*])";
-    private static final String REGEX_START_WITH_OPERATOR = "((\\s*)[\\+|\\-|\\/|\\*](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?))*))";
+    private static final String REGEX_DECIMAL_EXPRESSION = "(-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*\\%](\\s+)-{0,1}((-?\\.?(\\d+((\\.|,| )\\d+)?)))*)+)";
+    private static final String REGEX_EXPRESSION = "(((-?\\.?(\\d+((\\.|,| )\\d+)?)))+((\\s+)[\\+|\\-|\\/|\\*\\%](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?)))+)+)";
+    private static final String REGEX_END_WITH_OPERATOR = "(((-?\\.?(\\d+((\\.|,| )\\d+)?))*)(\\s+)[\\+|\\-|\\/|\\*\\%])";
+    private static final String REGEX_START_WITH_OPERATOR = "((\\s*)[\\+|\\-|\\/|\\*\\%](\\s+)((-?\\.?(\\d+((\\.|,| )\\d+)?))*))";
     private static final String REGEX_NUMBER = "(\\d+)";
-    private static final String REGEX_OPERATOR = "([\\+|\\-|\\/|\\*])";    
+    private static final String REGEX_OPERATOR = "([\\+|\\-|\\/|\\*\\%])";    
     
     public static boolean isExpressionValid(String expression) {
         String regex = REGEX_DECIMAL_EXPRESSION;

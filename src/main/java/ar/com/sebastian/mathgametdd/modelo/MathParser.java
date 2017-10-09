@@ -5,6 +5,8 @@
  */
 package ar.com.sebastian.mathgametdd.modelo;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 /**
@@ -44,11 +46,18 @@ public class MathParser{
         
         ArrayList<String> subExpressions = lexer.getExpressions(expression);
         String flatExpression = STRING_EMPTY;
-        
+              
         for (String subExp : subExpressions) {
             
-            if(MathRegex.isExpression(flatExpression.trim()))
-                flatExpression = Double.toString(resolver.resolveSimpleExpression(flatExpression.trim()));
+            if(MathRegex.isExpression(flatExpression.trim())){
+                double aux = resolver.resolveSimpleExpression(flatExpression.trim());
+                BigDecimal auxNumber = new BigDecimal(aux);
+                String auxNumberString1 = auxNumber.toString();
+//                flatExpression = auxNumberString1.substring(0, 40);
+                flatExpression = auxNumberString1;
+                
+//                flatExpression = Double.toString(aux);
+            }
             
             if(!MathRegex.isSubExpression(subExp))
                 flatExpression += resolver.resolveSimpleExpression(subExp);

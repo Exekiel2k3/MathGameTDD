@@ -27,7 +27,7 @@ public class MathRegexTests {
     
     @Test
     public void isOperator(){
-        String operators = "*+-/";
+        String operators = "*+-/%";
         for (Character character : operators.toCharArray()) {
             assertTrue(MathRegex.isOperator(character.toString()));
         }

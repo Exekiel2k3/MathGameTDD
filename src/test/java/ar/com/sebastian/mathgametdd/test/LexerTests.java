@@ -45,7 +45,7 @@ public class LexerTests {
     @Test
     public void validateSimpleExpressionWithAllOperators(){
         
-        String operators = "+-*/";
+        String operators = "+-*/%";
         String expression = "";
         char[] operatorsChar = operators.toCharArray();
         
@@ -127,7 +127,7 @@ public class LexerTests {
     
     @Test
     public void validateSuperComplexExpression(){
-        String expression = "7 - -1 * 2 / 3 + -5";
+        String expression = "7 - -1 * 2 / 3 + -5 % 100";
         boolean result = MathRegex.isExpressionValid(expression);
         assertTrue(result);
     }
@@ -135,10 +135,12 @@ public class LexerTests {
     @Test
     public void getTokensLongExpression() throws InvalidOperationException{
         ArrayList<MathToken> tokens = null;
-        tokens = lexer.getTokens("2 - 1 + 3");
-        assertEquals(5, tokens.size());
+        tokens = lexer.getTokens("2 - 1 + 3 % 100");
+        assertEquals(7, tokens.size());
         assertEquals("+", tokens.get(3).getToken());
         assertEquals("3", tokens.get(4).getToken());
+        assertEquals("%", tokens.get(5).getToken());
+        assertEquals("100", tokens.get(6).getToken());
     }
     
     @Test
@@ -152,8 +154,10 @@ public class LexerTests {
     
     @Test
     public void getTokensRightSubclasses() throws InvalidOperationException{
-        ArrayList<MathToken> tokens = lexer.getTokens("2 + 2");
+        ArrayList<MathToken> tokens = lexer.getTokens("2 + 2 % 100");
         assertTrue(tokens.get(0) instanceof MathNumber);
         assertTrue(tokens.get(1) instanceof MathOperator);
+        assertTrue(tokens.get(3) instanceof MathOperator);
+        assertTrue(tokens.get(4) instanceof MathNumber);
     }
 }

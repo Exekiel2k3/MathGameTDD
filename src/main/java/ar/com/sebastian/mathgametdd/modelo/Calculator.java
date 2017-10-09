@@ -47,6 +47,10 @@ public class Calculator extends SimpleCalculator{
         return aux1;
     }
     
+    public double percentage(double arg1, double arg2) throws ArithmeticException{
+        return division(multiply(arg1, arg2), 100);
+    }
+    
     private void assingBigDecimals(double arg1, double arg2) {
         bd1 = new BigDecimal(Double.toString(arg1));
         bd2 = new BigDecimal(Double.toString(arg2));

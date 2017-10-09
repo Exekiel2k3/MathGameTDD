@@ -159,4 +159,14 @@ public class CalculatorProxyTests {
     public void division() throws Exception{
         assertEquals(calculatorProxy.binaryOperation(Calculator.class, "division", 10, 2), 5, 0);
     }
-}
+    
+    @Test
+    public void percentage() throws Exception{
+        assertEquals(calculatorProxy.binaryOperation(Calculator.class, "percentage", 10, 10), 1, 0);
+    }
+    
+    @Test
+    public void percentageWhitDouble() throws Exception{
+        assertEquals(calculatorProxy.binaryOperation(Calculator.class, "percentage", 20.5, 10), 2.05, 0);
+    }
+ }

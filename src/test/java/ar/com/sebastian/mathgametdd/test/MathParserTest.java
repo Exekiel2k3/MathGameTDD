@@ -125,7 +125,7 @@ public class MathParserTest {
     
     @Test
     public void processAcceptanceExpressionWithAllOperators() throws Exception{
-        assertEquals(8, parser.processExpression("5 + 4 - 1 * 2 / 2"), 0);
+        assertEquals(-3.5, parser.processExpression("5 + 4 - 1 * 2 / 2 % 8"), 0);
     }
     
     @Test
@@ -183,6 +183,7 @@ public class MathParserTest {
         }
     }
     
+    @Test
     public void getNestedExpression() throws InvalidOperationException{
         ArrayList<String> expressions = lexer.getExpressions("((2 + 1) + 3)");
         assertEquals(3, expressions.size());
@@ -383,5 +384,45 @@ public class MathParserTest {
     @Test
     public void processComplexNestedExpressionsWhitDouble() throws Exception {
         assertEquals(0.20, parser.processExpression("((.2 + .2) + .1)  * (.3 + .1)"), 0);
+    }
+
+    @Test
+    public void processSimplePercentageExpression() throws Exception{
+        assertEquals(0.04, parser.processExpression("2 % 2"), 0);
+    }
+
+    @Test(expected = InvalidOperationException.class)
+    public void getTokensWrongExpressionPercentage() throws InvalidOperationException, Exception{
+        resolver.resolveSimpleExpression("2 %% 2");
+    }
+    
+    @Test
+    public void getNestedExpressionWhitPercentage() throws InvalidOperationException{
+        ArrayList<String> expressions = lexer.getExpressions("((2 % 2) % 3)");
+        assertEquals(3, expressions.size());
+        for (String exp : expressions) {
+            if((!"2 % 2".equals(exp)) && (!"%".equals(exp)) && (!"3".equals(exp))){
+                assertFalse(true);
+            }
+        }
+    }
+    
+    @Test
+    public void getExpressionWithTwoGroupsPercentage() throws InvalidOperationException{
+        ArrayList<String> expressions = lexer.getExpressions("(2 % 2) * (2 % 2)");
+        assertEquals(3, expressions.size());
+        assertEquals("2 % 2", expressions.get(0));
+        assertEquals("*", expressions.get(1));
+        assertEquals("2 % 2", expressions.get(2));
+    }
+    
+    @Test
+    public void processAcceptanceExpressionWithParenthesisPercentage() throws Exception{
+        assertEquals(0.0016, parser.processExpression("(2 % 2) * (2 % 2)"), 0);
+    }
+    
+    @Test
+    public void processComplexNestedExpressionsWhitPercentage() throws Exception {
+        assertEquals(0.0016, parser.processExpression("((2 % 2) % 1) * (3 + 1)"), 0);
     }
 }
