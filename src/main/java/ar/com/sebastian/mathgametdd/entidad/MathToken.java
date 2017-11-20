@@ -36,7 +36,7 @@ public abstract class MathToken {
     public String getToken() {
         return token;
     }
-
+    
     public int getPrecedence() {
         return precedence;
     }

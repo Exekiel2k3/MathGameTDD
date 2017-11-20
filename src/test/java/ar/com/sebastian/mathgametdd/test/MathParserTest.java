@@ -425,4 +425,14 @@ public class MathParserTest {
     public void processComplexNestedExpressionsWhitPercentage() throws Exception {
         assertEquals(0.0016, parser.processExpression("((2 % 2) % 1) * (3 + 1)"), 0);
     }
+    
+    @Test
+    public void processSimpleExpressionsWhitScientificNotation() throws Exception {
+        assertEquals(31.0000000031, parser.processExpression("(3.1e-9 + 3.1E+1)"), 0);
+    }
+    
+    @Test
+    public void processComplexNestedExpressionsWhitScientificNotation() throws Exception {
+        assertEquals(-2.116e-5, parser.processExpression("((2 % 2) % 1) * (2.3e-9 % -2.3E+9)"), 0);
+    }
 }

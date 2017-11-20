@@ -35,6 +35,6 @@ public class OperatorFactoryTest {
     @Test
     public void createPercentageOperator() throws InvalidOperationException{
         MathOperator op = OperatorFactory.create("%");
-        assertEquals(op.getPrecedence(), 3);
+        assertEquals(op.getPrecedence(), 2);
     }
 }

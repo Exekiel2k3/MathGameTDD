@@ -32,4 +32,9 @@ public class MathRegexTests {
             assertTrue(MathRegex.isOperator(character.toString()));
         }
     }
+    
+    @Test
+    public void isSubExpressionScientificNotation(){
+        assertTrue(!MathRegex.isSubExpression("2.3e-1 + 2.3E+19"));
+    }
 }
